@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notas IA Local</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1>Documentos</h1>
+        <button id="new-doc-btn" class="btn btn-primary">+ Nuevo</button>
+      </div>
+      <ul id="doc-list" class="doc-list"></ul>
+    </aside>
+
+    <main class="editor-area">
+      <header class="editor-header">
+        <input id="doc-title" class="doc-title" type="text" placeholder="Sin título" />
+        <div class="header-actions">
+          <button id="open-direct-btn" class="btn btn-ghost">Abrir esta app</button>
+          <button id="delete-doc-btn" class="btn btn-danger">Eliminar documento</button>
+        </div>
+      </header>
+
+      <section id="blocks-container" class="blocks-container"></section>
+
+      <footer class="editor-footer">
+        <button id="add-block-btn" class="btn btn-primary">+ Añadir bloque</button>
+      </footer>
+    </main>
+  </div>
+
+  <template id="block-template">
+    <article class="block-card">
+      <div class="block-toolbar">
+        <select class="block-type-select" aria-label="Tipo de bloque">
+          <option value="texto">Texto</option>
+          <option value="titulo">Título</option>
+          <option value="checklist">Checklist</option>
+          <option value="codigo">Código</option>
+        </select>
+
+        <div class="toolbar-actions">
+          <button class="btn btn-ghost ai-action" data-action="resumir">Resumir</button>
+          <button class="btn btn-ghost ai-action" data-action="expandir">Expandir</button>
+          <button class="btn btn-ghost ai-action" data-action="reescribir">Reescribir</button>
+          <button class="btn btn-ghost move-up">↑</button>
+          <button class="btn btn-ghost move-down">↓</button>
+          <button class="btn btn-danger block-delete">✕</button>
+        </div>
+      </div>
+      <div class="block-content"></div>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
